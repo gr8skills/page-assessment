@@ -60,7 +60,7 @@ http://127.0.0.1:8000/api/v1/wallets
  http://127.0.0.1:8000/api/v1/stats
 ``` 
 
-- **[Send money from one wallet to another](http://127.0.0.1:8000/api/v1/send-money)** {POST Call [Form-data: sender => nuban || id, receiver: nuban || id, amount: double]}
+- **[Send money from one wallet to another](http://127.0.0.1:8000/api/v1/send-money)** {POST Call [Form-data: sender => nuban or id, receiver: nuban or id, amount: double]}
 ```
   http://127.0.0.1:8000/api/v1/send-money
 ``` 
