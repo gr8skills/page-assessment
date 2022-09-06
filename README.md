@@ -8,7 +8,7 @@
 
 ## Installation & Set-up
 
-- clone the project 
+- clone the repo 
 ```
 git clone https://github.com/gr8skills/page-assessment.git page_assessment
 ```
