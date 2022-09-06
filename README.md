@@ -1,61 +1,71 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Page Assessment Task
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
 
-## About Laravel
+## Stack used
+- PHP 7.2 (Laravel Framework)
+- SQLITE || MySQL Database
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Installation & Set-up
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- clone the project 
+```
+git clone https://github.com/gr8skills/page-assessment.git page_assessment
+```
+- SQLITE || MySQL Database setup in .env file (defaulted to sqlite)
 
-## Learning Laravel
+- create sqlite database file (to use sqlite)
+```
+touch database/database.sqlite
+``` 
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- migrate table and seed data
+```
+php artisan migrate --seed
+``` 
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- serve the project
+```
+php artisan serve
+``` 
 
-## Laravel Sponsors
+- hit the api below to add more wallet accounts to the seeded users using these parameters [wallet_qty:int, user_qty:int] POST Call
+```
+http://127.0.0.1:8000/api/v1/more/wallets
+``` 
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-### Premium Partners
+## apis
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
+- **[all users](http://127.0.0.1:8000/api/v1/users)** {GET Request}
+```
+http://127.0.0.1:8000/api/v1/users
+``` 
 
-## Contributing
+- **[a user’s detail including the wallets he/she own and his/her transaction history](http://127.0.0.1:8000/api/v1/user/id)** {GET Request}
+```
+http://127.0.0.1:8000/api/v1/user/id
+``` 
+- **[All Wallets]( http://127.0.0.1:8000/api/v1/wallets)** {GET Request}
+```
+http://127.0.0.1:8000/api/v1/user/id
+``` 
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- **[a wallet’s detail including its owner, type and the transaction history of that wallet](http://127.0.0.1:8000/api/v1/wallet/nuban)** {GET Request}
+```
+ http://127.0.0.1:8000/api/v1/wallet/nuban OR http://127.0.0.1:8000/api/v1/wallet/id
+``` 
+- **[count of users, count of wallets, total wallet balance, total volume of transactions.](http://127.0.0.1:8000/api/v1/stats)** {GET Request}
 
-## Code of Conduct
+- **[Send money from one wallet to another](http://127.0.0.1:8000/api/v1/send-money)** {POST Call [Form-data: sender => nuban || id, receiver: nuban || id, amount: double]}
+```
+  http://127.0.0.1:8000/api/v1/send-money
+``` 
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+# &nbsp;
 
-## Security Vulnerabilities
+## Important mentions
+- A sample sqlite database file (database_sample.sqlite) is included in database folder
+- To use this sample instead of creating a new one, rename the file to database.sqlite
+- To use MySQL instead of SQLITE, modify the .env file with the correct credentials
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
