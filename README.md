@@ -48,7 +48,7 @@ http://127.0.0.1:8000/api/v1/user/id
 ``` 
 - **[All Wallets]( http://127.0.0.1:8000/api/v1/wallets)** {GET Request}
 ```
-http://127.0.0.1:8000/api/v1/user/id
+http://127.0.0.1:8000/api/v1/wallets
 ``` 
 
 - **[a wallet’s detail including its owner, type and the transaction history of that wallet](http://127.0.0.1:8000/api/v1/wallet/nuban)** {GET Request}
@@ -56,6 +56,9 @@ http://127.0.0.1:8000/api/v1/user/id
  http://127.0.0.1:8000/api/v1/wallet/nuban OR http://127.0.0.1:8000/api/v1/wallet/id
 ``` 
 - **[count of users, count of wallets, total wallet balance, total volume of transactions.](http://127.0.0.1:8000/api/v1/stats)** {GET Request}
+```
+ http://127.0.0.1:8000/api/v1/stats
+``` 
 
 - **[Send money from one wallet to another](http://127.0.0.1:8000/api/v1/send-money)** {POST Call [Form-data: sender => nuban || id, receiver: nuban || id, amount: double]}
 ```

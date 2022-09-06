@@ -191,7 +191,7 @@ class WalletController extends Controller
         return response()->json([
             'user_count' => $user_count,
             'wallet_count' => $wallet_count,
-            'total_wallet_balance' => $total_wallet_balance[0]->total_balance,
+            'total_wallet_balance' => (double)$total_wallet_balance[0]->total_balance,
             'transaction_count' => $transaction_count
         ]);
     }
