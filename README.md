@@ -12,6 +12,10 @@
 ```
 git clone https://github.com/gr8skills/page-assessment.git page_assessment
 ```
+- Install dependencies
+```
+composer install
+```
 - SQLITE || MySQL Database setup in .env file (defaulted to sqlite)
 
 - create sqlite database file (to use sqlite)
